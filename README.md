@@ -1,2 +1,2 @@
 # slotsim
-Slot Simulator
+A Slot Simulator written in Python using the Kivy framework.
