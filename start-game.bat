@@ -9,7 +9,7 @@ echo %PATH%
 echo.
 echo SET PYTHON VIRTUALENV PATH
 echo.
-rem s%~dp0 equivilant to PYTHONPATH=%PYTHONPATH%;C:\Users\username\Documents\slotsim
+rem s%~dp0 is the folder relative to where this script started and is equivilant to PYTHONPATH=%PYTHONPATH%;C:\Users\username\Documents\pathtothisgitcheckoutfolder
 set PYTHONPATH=%PYTHONPATH%;%~dp0
 echo %PYTHONPATH%
 echo.

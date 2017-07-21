@@ -16,12 +16,11 @@ from kivy.config import Config
 # window_state: string , one of ‘visible’, ‘’, ‘maximized’
 Config.set('graphics', 'window_state', 'visible')
 
-# TURN ON OR OFF LOG FILES AND TUNE VERBOCITY
-# Differents logging levels are available : trace, debug, info, warning, error and critical.
-# Config.set('kivy', 'log_level', 'trace')
+# TURN ON OR OFF WRITING KIVY LOG FILES AND TUNE VERBOCITY
 # log_enable = 1
 Config.set('kivy', 'log_enable', 0)
-
+# Differents logging levels are available : trace, debug, info, warning, error and critical.
+Config.set('kivy', 'log_level', 'info')
 Config.write()
 
 # SET GAME CONFIG OPTIONS
