@@ -9,14 +9,13 @@ echo %PATH%
 echo.
 echo SET PYTHON VIRTUALENV PATH
 echo.
-set PYTHONPATH=%PYTHONPATH%;C:\Users\david\Documents\slotsim
+rem s%~dp0 equivilant to PYTHONPATH=%PYTHONPATH%;C:\Users\username\Documents\slotsim
+set PYTHONPATH=%PYTHONPATH%;%~dp0
 echo %PYTHONPATH%
 echo.
 echo ACTIVATE PYTHON VIRTUALENV and START GAME
 echo.
-rem kivy test cmd /k "cd /d C:\Users\david\Documents\slotsim\Scripts\ & activate & cd /d C:\Users\david\Documents\slotsim\share\kivy-examples\demo\showcase\ & python main.py runserver"
-cmd /k "cd /d C:\Users\david\Documents\slotsim\Scripts\ & activate & cd /d C:\Users\david\Documents\slotsim\ & python main.py runserver"
-
-pause
+cmd /k "cd /d %~dp0\Scripts\ & activate & cd /d %~dp0 & python main.py runserver"
 echo -------------
 echo SLOTSIM STARTING
+pause
