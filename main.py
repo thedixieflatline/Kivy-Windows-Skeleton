@@ -9,24 +9,123 @@ print(n)
 
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.properties import NumericProperty, ReferenceListProperty, ObjectProperty
-from kivy.vector import Vector
-from kivy.clock import Clock
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.label import Label
+from kivy.graphics import Rectangle, Color, Line
+from kivy.uix.image import Image
+from kivy.logger import Logger
+from kivy.event import EventDispatcher
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.lang import Builder
+from random import random
 
-# Class declaration
-class Interface(BoxLayout):
+
+#Load the KV file
+Interface = Builder.load_file("slotsim.kv")
+
+# Class declaration ?????????????????????????????????????????????????????????????????
+
+# Declare screen classes
+class GameScreen(Screen):
     pass
-# Application loop
+
+class SettingsScreen(Screen):
+    pass
+
+
+# Screen Manager setup &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+# Create the screen manager
+ScreenSystem = ScreenManager()
+
+# Add screens to screen manager
+ScreenSystem.add_widget(GameScreen(name='GameScreen'))
+ScreenSystem.add_widget(SettingsScreen(name='SettingsScreen'))
+
+# Application loop @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 class SlotsimApp(App):
+
     def build(self):
-        root_widget = Interface()
-        return root_widget
-        # game = ButtonTest()
-        # return game
+        self.title = 'Slot Simulator'
+        self.icon = 'Games\Default\Images\custom-kivy-icon.png'
+        return ScreenSystem
+
+    def on_start(self):
+        Logger.info('App: I\'m alive!')
+
+    def on_stop(self):
+        Logger.critical('App: Aaaargh I\'m dying!')
 
 # Application run
 if __name__ == '__main__':
     SlotsimApp().run()
+
+
+#Examples before implimentation if you know what I mean!
+
+# <DrawingWidget>:
+#     canvas:
+#         Color:
+#             rgba: 1, 1, 1, 1
+#         Rectangle:
+#             pos: self.pos
+#             size: self.size
+#             #size: (50, 50)
+#
+# <ColourSlider@Slider>:
+#     min: 0
+#     max: 1
+#     value: 0.5
+#     size_hint_y: None
+#     height: 80
+
+# <Interface>:
+#     orientation: 'vertical'
+#     Button:
+#         Image:
+#             source: 'Games/Default/Images/Button_Base_Oval_Normal.png'
+#             #y: self.parent.y + self.parent.height - 250
+#             #x: self.parent.x
+#             center_x: self.parent.center_x
+#             center_y: self.parent.center_y
+#             size: 250, 250
+#             allow_stretch: True
+#         Label:
+#             text: "Spin"
+#     Label:
+#         text: "Spin"
+
+	#	background_color: 80,50,40,0.5
+	#	size: 100,75
+	#	pos: 0,0
+	#	text: str(self.state)
+	#	color: 20,100,0,1
+	#	font_size: 40
+
+    #BoxLayout:
+    #    orientation: 'horizontal'
+    #    size_hint_y: None
+    #    height: 140
+    #    Label:
+    #        text: 'output colour:'
+
+# class DrawingWidget(Widget):
+#
+#     def on_touch_down(self, touch):
+#         super(DrawingWidget, self).on_touch_down(touch)
+#
+#         if not self.collide_point(*touch.pos):
+#             return
+#
+#         with self.canvas:
+#             Color(random(), random(), random())
+#             self.line = Line(points=[touch.pos[0], touch.pos[1]], width=2)
+#
+#     def on_touch_move(self, touch):
+#         if not self.collide_point(*touch.pos):
+#             return
+#
+#         self.line.points = self.line.points + [touch.pos[0], touch.pos[1]]
+
+# class Interface(BoxLayout):
+#     pass

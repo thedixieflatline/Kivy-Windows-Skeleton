@@ -1,6 +1,22 @@
 #:kivy 1.0.9
-<Interface>:
-    orientation: 'vertical'
-    Label:
-        text: 'label added with kv'
-        font_size: 50
+<ScreenManager>:
+	GameScreen:
+	SettingsScreen:
+
+<GameScreen>:
+    BoxLayout:
+        Button:
+            text: 'Settings Screen'
+            on_press: root.manager.current = 'SettingsScreen'
+
+        Button:
+            text: 'Game'
+
+<SettingsScreen>:
+    BoxLayout:
+        Button:
+            text: 'Settings'
+        Button:
+            text: 'Game'
+            on_press: root.manager.current = 'GameScreen'
+
