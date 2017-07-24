@@ -1,22 +1,94 @@
 #:kivy 1.0.9
-<ScreenManager>:
-	GameScreen:
-	SettingsScreen:
+
+<AppScreen>:
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        id: foo_bar
+        orientation: 'horizontal'
+
+<MyButton@Button>:
+    #background_color: 0,0,0, 1
+    #color: 1, 1, 1, 1
+    font_size: 20
+    color: 1,1,0,1
+    #Button:
+    #    text: "B1"
+    #    Image:
+    #        source: 'kivy.png'
+    #        y: self.parent.y + self.parent.height - 250
+    #        x: self.parent.x
+    #        size: 250, 250
+    #        allow_stretch: True
+
+    #Image:
+        #source: '\Games\Default\Images\button_normal.png'
+        #y: self.parent.y + self.parent.height - 250
+        #x: self.parent.x
+        #size: 250, 250
+        #allow_stretch: True
+        #center_x: self.parent.center_x
+        #center_y: self.parent.center_y
+    #source: '\Games\Default\Images\button_normal.png'
+    #background_normal: '\Games\Default\Images\button_normal.png'  # A clear image gives a bright red.
+    #background_down: '\Games\Default\Images\button_down.png'  # A gray image gives a duller red.
+    #border: (2, 2, 2, 2)  # Don't stretch the outer two pixels on each edge when resizing.
 
 <GameScreen>:
     BoxLayout:
-        Button:
-            text: 'Settings Screen'
-            on_press: root.manager.current = 'SettingsScreen'
-
+        orientation: 'horizontal'
+        height: 50
+        size_hint_y: None
+        spacing: 10
         Button:
             text: 'Game'
+            font_size: 20
+        Button:
+            text: 'Settings'
+            font_size: 20
+            on_press: root.manager.current = 'SettingsScreen'
+        MyButton:
+            text: "Btn1"
+            #background_color: 1,0,0,1
+        MyButton:
+            text: "Btn2"
+            #background_color: 0,1,0,1
+        MyButton:
+            text: "Btn3"
+            #background_color: 0,0,1,1
+        MyButton:
+            text: "Btn4"
+            #background_color: 1,0,1,1
+        MyButton:
+            text: "Btn5"
+            #background_color: 1,0,0,1
 
 <SettingsScreen>:
     BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+        spacing: 10
         Button:
             text: 'Settings'
+            font_size: 20
         Button:
             text: 'Game'
-            on_press: root.manager.current = 'GameScreen'
+            font_size: 20
+            on_press: root.manager.current = 'AppScreen'
+        MyButton:
+            text: "Btn1"
+            #background_color: 1,0,0,1
+        MyButton:
+            text: "Btn2"
+            #background_color: 0,1,0,1
+        MyButton:
+            text: "Btn3"
+            #background_color: 0,0,1,1
+        MyButton:
+            text: "Btn4"
+            #background_color: 1,0,1,1
+        MyButton:
+            text: "Btn5"
+            #background_color: 1,0,0,1
 

@@ -21,6 +21,10 @@ Config.set('graphics', 'window_state', 'visible')
 Config.set('kivy', 'log_enable', 0)
 # Differents logging levels are available : trace, debug, info, warning, error and critical.
 Config.set('kivy', 'log_level', 'info')
+# set screen size
+Config.set('graphics', 'width', '960')
+Config.set('graphics', 'height', '540')
+# write the config options
 Config.write()
 
 # SET GAME CONFIG OPTIONS
@@ -59,6 +63,10 @@ class SettingsScreen(Screen):
     pass
 
 
+class AppScreen(Screen):
+    pass
+
+
 # Screen Manager setup &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 # Create the screen manager
@@ -67,9 +75,12 @@ ScreenSystem = ScreenManager()
 # Add screens to screen manager
 ScreenSystem.add_widget(GameScreen(name='GameScreen'))
 ScreenSystem.add_widget(SettingsScreen(name='SettingsScreen'))
-
+ScreenSystem.add_widget(AppScreen(name='AppScreen'))
+# for child in ScreenSystem.children:
+#     print(child)
 
 # Application loop @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class SlotsimApp(App):
 
@@ -86,12 +97,12 @@ class SlotsimApp(App):
 
 
 # Application run
+
 if __name__ == '__main__':
     SlotsimApp().run()
 
 
     # Examples before implimentation if you know what I mean!
-
     # <DrawingWidget>:
     #     canvas:
     #         Color:
