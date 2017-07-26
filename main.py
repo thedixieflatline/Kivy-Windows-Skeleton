@@ -95,7 +95,6 @@ class SlotsimApp(App):
     def on_stop(self):
         Logger.critical('App: Aaaargh I\'m dying!')
 
-
 # Application run
 
 if __name__ == '__main__':
