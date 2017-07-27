@@ -85,22 +85,15 @@
             size_hint_y: None
             spacing: 10
             Button:
-                text: 'Game'
-                font_size: 20
-                on_press: root.manager.current = 'GameScreen'
-            Button:
                 text: 'Settings'
                 font_size: 20
                 on_press: root.manager.current = 'SettingsScreen'
-            MyButton1:
-                text: "App"
-                on_press: root.manager.current = 'AppScreen'
             MyButton:
-                text: "Btn1"
+                text: "Bet Up"
             MyButton:
-                text: "Btn1"
+                text: "Bet Down"
             MyButton:
-                text: "Btn3"
+                text: "Spin"
 
 <SettingsScreen>:
     FloatLayout:
@@ -119,16 +112,13 @@
                 text: 'Game'
                 font_size: 20
                 on_press: root.manager.current = 'GameScreen'
-            Button:
-                text: 'Settings'
-                font_size: 20
-                on_press: root.manager.current = 'SettingsScreen'
             MyButton1:
                 text: "App"
                 on_press: root.manager.current = 'AppScreen'
             MyButton:
-                text: "Btn1"
+                text: "Kivy Settings"
+                on_release: app.open_settings()
             MyButton:
-                text: "Btn2"
+                text: "Reels"
             MyButton:
-                text: "Btn3"
+                text: "Paytable"

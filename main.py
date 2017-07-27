@@ -48,6 +48,9 @@ from kivy.event import EventDispatcher
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
+from kivy.uix.settings import SettingsWithSidebar
+from settingsjson import settings_json
+
 # Load the KV file for the game
 Interface = Builder.load_file("slotsim.kv")
 
@@ -60,7 +63,23 @@ class GameScreen(Screen):
 
 
 class SettingsScreen(Screen):
-    pass
+
+    def build_config(self, config):
+        config.setdefaults('example', {
+            'boolexample': True,
+            'numericexample': 10,
+            'optionsexample': 'option2',
+            'stringexample': 'some_string',
+            'pathexample': '/some/path'})
+
+    def build_settings(self, settings):
+        settings.add_json_panel('Panel Name',
+                                self.config,
+                                data=settings_json)
+
+    def on_config_change(self, config, section,
+                         key, value):
+        print(config, section, key, value)
 
 
 class AppScreen(Screen):
