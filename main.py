@@ -63,24 +63,28 @@ class GameScreen(Screen):
 
 
 class SettingsScreen(Screen):
-
-    def build_config(self, config):
-        config.setdefaults('example', {
-            'boolexample': True,
-            'numericexample': 10,
-            'optionsexample': 'option2',
-            'stringexample': 'some_string',
-            'pathexample': '/some/path'})
-
-    def build_settings(self, settings):
-        settings.add_json_panel('Panel Name',
-                                self.config,
-                                data=settings_json)
-
-    def on_config_change(self, config, section,
-                         key, value):
-        print(config, section, key, value)
-
+    pass
+    # def build(self):
+    #     self.settings_cls = SettingsWithSidebar
+    #     self.use_kivy_settings = False
+    #     setting = self.config.get('example', 'boolexample')
+    #
+    # def build_config(self, config):
+    #     config.setdefaults('example', {
+    #         'boolexample': True,
+    #         'numericexample': 10,
+    #         'optionsexample': 'option2',
+    #         'stringexample': 'some_string',
+    #         'pathexample': '/some/path'})
+    #
+    # def build_settings(self, settings):
+    #     settings.add_json_panel('Panel Name',
+    #                             self.config,
+    #                             data=settings_json)
+    #
+    # def on_config_change(self, config, section,
+    #                      key, value):
+    #     print(config, section, key, value)
 
 class SimulatorScreen(Screen):
     pass
@@ -106,6 +110,9 @@ class SlotsimApp(App):
     def build(self):
         self.title = 'Slot Simulator'
         self.icon = 'Games\Default\Images\custom-kivy-icon.png'
+        self.settings_cls = SettingsWithSidebar
+        self.use_kivy_settings = False
+        setting = self.config.get('example', 'boolexample')
         return ScreenSystem
 
     def on_start(self):
@@ -113,6 +120,23 @@ class SlotsimApp(App):
 
     def on_stop(self):
         Logger.critical('App: Aaaargh I\'m dying!')
+
+    def build_config(self, config):
+        config.setdefaults('example', {
+            'boolexample': True,
+            'numericexample': 10,
+            'optionsexample': 'option2',
+            'stringexample': 'some_string',
+            'pathexample': '/some/path'})
+
+    def build_settings(self, settings):
+        settings.add_json_panel('Panel Name',
+                                self.config,
+                                data=settings_json)
+
+    def on_config_change(self, config, section,
+                         key, value):
+        print(config, section, key, value)
 
 # Application run
 
