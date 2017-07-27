@@ -1,35 +1,39 @@
 #:kivy 1.0.9
 
-<AppScreen>:
+<SimulatorScreen>:
     FloatLayout:
         size: root.size
         pos: root.pos
-        id: App Screen
+        id: AppScreen
         orientation: 'vertical'
         Label:
-            text: "APP"
+            text: "Simulator"
         BoxLayout:
             orientation: 'horizontal'
             height: 50
             size_hint_y: None
             spacing: 10
-            Button:
+            MyButton1:
                 text: 'Game'
-                font_size: 20
                 on_press: root.manager.current = 'GameScreen'
-            Button:
+            MyButton1:
                 text: 'Settings'
                 font_size: 20
                 on_press: root.manager.current = 'SettingsScreen'
-            MyButton1:
-                text: 'App'
-                on_press: root.manager.current = 'AppScreen'
             MyButton:
-                text: "Btn2"
+                text: "Reelstrips"
             MyButton:
-                text: "Btn3"
+                text: "Paytable"
             MyButton:
-                text: "Btn4"
+                text: "Rules"
+            MyButton:
+                text: "Lines"
+            MyButton:
+                text: "Denom"
+            MyButton:
+                text: "Bet"
+            MyButton:
+                text: "Credit"
 
 <MyButton@Button>:
     background_color: 0,0,1, 1
@@ -37,20 +41,21 @@
 <MyButton1@Button>:
     #background_color: 0,0,0, 1
     #color: 1, 1, 1, 1
+    font_size: 20
     background_normal: 'Games/Default/Images/Button_Base_Oval_Disabled.png'
     background_down: 'Games/Default/Images/Button_Base_Oval_Normal.png'
-    #Label:
-        #center_x: root.center_x
-        #center_y: root.center_y
-        #pos: (self.parent.x +100, self.parent.y) if self.parent else (100, 100)
-        #pos: (0,0)
-        #pos: (self.parent.x, self.parent.y)
-        #pos: (root.width - 100, root.height / 2)
-        #self.center_x - self.texture_size[0] / 2., self.center_y - self.texture_size[1] / 2
-        #pos: (self.parent.x + (self.parent.width / 2)), (self.parent.y + self.parent.height)
-        #pos: (self.parent.x + (self.parent.width / 2) , self.parent.y + (self.parent.height / 2))
-        #font_size: 18
-        #y: root.y
+#    Label:
+#        center_x: root.center_x
+#        center_y: root.center_y
+#        pos: (self.parent.x +100, self.parent.y) if self.parent else (100, 100)
+#        pos: (0,0)
+#        pos: (self.parent.x, self.parent.y)
+#        pos: (root.width - 100, root.height / 2)
+#        self.center_x - self.texture_size[0] / 2., self.center_y - self.texture_size[1] / 2
+#        pos: (self.parent.x + (self.parent.width / 2)), (self.parent.y + self.parent.height)
+#        pos: (self.parent.x + (self.parent.width / 2) , self.parent.y + (self.parent.height / 2))
+#        font_size: 18
+#        y: root.y
         #x: root.x
         #pos: root.x, 0
         #bold: True
@@ -75,7 +80,7 @@
     FloatLayout:
         size: root.size
         pos: root.pos
-        id: Game Screen
+        id: GameScreen
         orientation: 'vertical'
         Label:
             text: "GAME"
@@ -84,9 +89,8 @@
             height: 50
             size_hint_y: None
             spacing: 10
-            Button:
+            MyButton1:
                 text: 'Settings'
-                font_size: 20
                 on_press: root.manager.current = 'SettingsScreen'
             MyButton:
                 text: "Bet Up"
@@ -99,7 +103,7 @@
     FloatLayout:
         size: root.size
         pos: root.pos
-        id: Game Screen
+        id: GameScreen
         orientation: 'vertical'
         Label:
             text: "SETTINGS"
@@ -108,17 +112,16 @@
             size_hint_y: None
             height: 50
             spacing: 10
-            Button:
+            MyButton1:
                 text: 'Game'
-                font_size: 20
                 on_press: root.manager.current = 'GameScreen'
             MyButton1:
-                text: "App"
-                on_press: root.manager.current = 'AppScreen'
+                text: "Simulator"
+                on_press: root.manager.current = 'SimulatorScreen'
             MyButton:
-                text: "Kivy Settings"
+                text: "Resources"
                 on_release: app.open_settings()
             MyButton:
-                text: "Reels"
+                text: "Configuration"
             MyButton:
-                text: "Paytable"
+                text: "Help"

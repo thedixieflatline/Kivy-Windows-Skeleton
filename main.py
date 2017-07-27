@@ -82,7 +82,7 @@ class SettingsScreen(Screen):
         print(config, section, key, value)
 
 
-class AppScreen(Screen):
+class SimulatorScreen(Screen):
     pass
 
 
@@ -94,7 +94,7 @@ ScreenSystem = ScreenManager()
 # Add screens to screen manager
 ScreenSystem.add_widget(GameScreen(name='GameScreen'))
 ScreenSystem.add_widget(SettingsScreen(name='SettingsScreen'))
-ScreenSystem.add_widget(AppScreen(name='AppScreen'))
+ScreenSystem.add_widget(SimulatorScreen(name='SimulatorScreen'))
 # for child in ScreenSystem.children:
 #     print(child)
 
