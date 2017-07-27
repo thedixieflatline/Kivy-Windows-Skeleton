@@ -8,6 +8,8 @@
         orientation: 'vertical'
         Label:
             text: "Simulator"
+            font_name: 'Games/Default/Fonts/Warszawa.otf'
+            font_size: 70
         BoxLayout:
             orientation: 'horizontal'
             height: 50
@@ -21,7 +23,7 @@
                 font_size: 20
                 on_press: root.manager.current = 'SettingsScreen'
             MyButton:
-                text: "Configuration"
+                text: "Config"
                 on_release: app.open_settings()
             MyButton:
                 text: "Reelstrips"
@@ -45,6 +47,8 @@
         orientation: 'vertical'
         Label:
             text: "GAME"
+            font_name: 'Games/Default/Fonts/Warszawa.otf'
+            font_size: 70
         BoxLayout:
             orientation: 'horizontal'
             height: 50
@@ -68,6 +72,8 @@
         orientation: 'vertical'
         Label:
             text: "SETTINGS"
+            font_name: 'Games/Default/Fonts/Warszawa.otf'
+            font_size: 70
         BoxLayout:
             orientation: 'horizontal'
             size_hint_y: None
@@ -80,23 +86,25 @@
                 text: "Simulator"
                 on_press: root.manager.current = 'SimulatorScreen'
             MyButton1:
-                text: "Configuration"
+                text: "Settings"
                 on_release: app.open_settings()
             MyButton1:
-                text: "Resources"
+                text: "Account"
                 #on_release: app.open_settings()
             MyButton1:
                 text: "Help"
 
 <MyButton@Button>:
     background_color: 0,0,1, 1
-
+    font_name: 'Games/Default/Fonts/FloridaProjectPhaseTwo.ttf'
+    bold: True
+    font_size: 20
 <MyButton1@Button>:
     #background_color: 0,0,0, 1
     #color: 1, 1, 1, 1
     font_size: 20
-    font_name: 'Games/Default/Fonts/BebasNeueBold.ttf'
-    #text='[b]'
+    bold: True
+    font_name: 'Games/Default/Fonts/FloridaProjectPhaseTwo.ttf'
     background_normal: 'Games/Default/Images/Button_Base_Oval_Disabled.png'
     background_down: 'Games/Default/Images/Button_Base_Oval_Normal.png'
 #    Label:

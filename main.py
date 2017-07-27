@@ -49,6 +49,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
 from kivy.uix.settings import SettingsWithSidebar
+from kivy.uix.settings import SettingsWithTabbedPanel
 from settingsjson import settings_json
 
 # Load the KV file for the game
@@ -110,8 +111,8 @@ class SlotsimApp(App):
     def build(self):
         self.title = 'Slot Simulator'
         self.icon = 'Games\Default\Images\custom-kivy-icon.png'
-        self.settings_cls = SettingsWithSidebar
-        self.use_kivy_settings = False
+        self.settings_cls = SettingsWithTabbedPanel
+        self.use_kivy_settings = True
         setting = self.config.get('example', 'boolexample')
         return ScreenSystem
 
@@ -122,7 +123,7 @@ class SlotsimApp(App):
         Logger.critical('App: Aaaargh I\'m dying!')
 
     def build_config(self, config):
-        config.setdefaults('example', {
+        config.setdefaults('screen', {
             'boolexample': True,
             'numericexample': 10,
             'optionsexample': 'option2',
@@ -130,12 +131,9 @@ class SlotsimApp(App):
             'pathexample': '/some/path'})
 
     def build_settings(self, settings):
-        settings.add_json_panel('Panel Name',
-                                self.config,
-                                data=settings_json)
+        settings.add_json_panel('Settings', self.config, data=settings_json)
 
-    def on_config_change(self, config, section,
-                         key, value):
+    def on_config_change(self, config, section, key, value):
         print(config, section, key, value)
 
 # Application run
