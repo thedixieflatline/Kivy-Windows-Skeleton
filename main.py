@@ -31,6 +31,9 @@ Config.write()
 import json
 print(json.dumps({'GameName': 'Slot Sim', 'Version': "0.1"}, sort_keys=True, indent=4))
 
+# import the external python file settingsjson.py
+from settingsjson import settings_json
+from gamejson import game_json
 
 # Library Import
 
@@ -47,45 +50,24 @@ from kivy.logger import Logger
 from kivy.event import EventDispatcher
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
-
-from kivy.uix.settings import SettingsWithSidebar
 from kivy.uix.settings import SettingsWithTabbedPanel
-from settingsjson import settings_json
+
 
 # Load the KV file for the game
 Interface = Builder.load_file("slotsim.kv")
 
-
 # Class declaration ?????????????????????????????????????????????????????????????????
 
 # Declare screen classes
+
+
 class GameScreen(Screen):
     pass
 
 
 class SettingsScreen(Screen):
     pass
-    # def build(self):
-    #     self.settings_cls = SettingsWithSidebar
-    #     self.use_kivy_settings = False
-    #     setting = self.config.get('example', 'boolexample')
-    #
-    # def build_config(self, config):
-    #     config.setdefaults('example', {
-    #         'boolexample': True,
-    #         'numericexample': 10,
-    #         'optionsexample': 'option2',
-    #         'stringexample': 'some_string',
-    #         'pathexample': '/some/path'})
-    #
-    # def build_settings(self, settings):
-    #     settings.add_json_panel('Panel Name',
-    #                             self.config,
-    #                             data=settings_json)
-    #
-    # def on_config_change(self, config, section,
-    #                      key, value):
-    #     print(config, section, key, value)
+
 
 class SimulatorScreen(Screen):
     pass
@@ -113,7 +95,6 @@ class SlotsimApp(App):
         self.icon = 'Games\Default\Images\custom-kivy-icon.png'
         self.settings_cls = SettingsWithTabbedPanel
         self.use_kivy_settings = True
-        setting = self.config.get('example', 'boolexample')
         return ScreenSystem
 
     def on_start(self):
@@ -124,15 +105,15 @@ class SlotsimApp(App):
 
     def build_config(self, config):
         config.setdefaults('screen', {
-            'boolexample': True,
-            'numericexample': 10,
-            'optionsexample': 'option2',
-            'stringexample': 'some_string',
-            'pathexample': '/some/path'})
+            'bool-': True,
+            'numeric-': 10,
+            'options-': 'option1',
+            'string-': 'some_string',
+            'path-': '/some/path'})
 
     def build_settings(self, settings):
-        settings.add_json_panel('Settings', self.config, data=settings_json)
-
+        # import the external python file settingsjson.py
+        settings.add_json_panel('Settings', self.config, data=game_json)
     def on_config_change(self, config, section, key, value):
         print(config, section, key, value)
 
