@@ -1,6 +1,6 @@
 import json
 
-game_json = json.dumps([
+symbols_json = json.dumps([
     {'type': 'title',
      'title': 'GameScreen'},
     {'type': 'bool',

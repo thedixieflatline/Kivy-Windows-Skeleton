@@ -1,0 +1,30 @@
+[INFO   ] Logger: Record log in Games\Default\logs\kivy_17-07-28_0.txt
+[WARNING] [Config      ] Upgrading configuration in progress.
+[WARNING] [Config      ] Older configuration version detected (0 instead of 19)
+[INFO   ] Kivy: v1.10.0
+[INFO   ] Python: v3.6.1 (v3.6.1:69c0db5, Mar 21 2017, 17:54:52) [MSC v.1900 32 bit (Intel)]
+[INFO   ] Factory: 194 symbols loaded
+[INFO   ] Image: Providers: img_tex, img_dds, img_sdl2, img_gif (img_pil, img_ffpyplayer ignored)
+[INFO   ] OSC: using <thread> for socket
+[INFO   ] Window: Provider: sdl2
+[INFO   ] GL: Using the "OpenGL" graphics system
+[INFO   ] GL: GLEW initialization succeeded
+[INFO   ] GL: Backend used <glew>
+[INFO   ] GL: OpenGL version <b'4.5.0 NVIDIA 384.94'>
+[INFO   ] GL: OpenGL vendor <b'NVIDIA Corporation'>
+[INFO   ] GL: OpenGL renderer <b'GeForce GTX 650 Ti BOOST/PCIe/SSE2'>
+[INFO   ] GL: OpenGL parsed version: 4, 5
+[INFO   ] GL: Shading version <b'4.50 NVIDIA'>
+[INFO   ] GL: Texture max size <16384>
+[INFO   ] GL: Texture max units <32>
+[INFO   ] Window: auto add sdl2 input provider
+[INFO   ] Window: virtual keyboard not allowed, single mode, not docked
+[INFO   ] Text: Provider: sdl2
+[WARNING] Lang: The file C:\Users\david\Documents\slotsim\slotsim.kv is loaded multiples times, you might have unwanted behaviors.
+[WARNING] Factory: Ignored class "MyButton" re-declaration. Current -  module: None, cls: <class 'kivy.factory.MyButton'>, baseclass: Button, filename: C:\Users\david\Documents\slotsim\slotsim.kv. Ignored -  module: None, cls: None, baseclass: Button, filename: C:\Users\david\Documents\slotsim\slotsim.kv.
+[WARNING] Factory: Ignored class "MyButton1" re-declaration. Current -  module: None, cls: <class 'kivy.factory.MyButton1'>, baseclass: Button, filename: C:\Users\david\Documents\slotsim\slotsim.kv. Ignored -  module: None, cls: None, baseclass: Button, filename: C:\Users\david\Documents\slotsim\slotsim.kv.
+[INFO   ] App: I'm alive!
+[INFO   ] Base: Start application main loop
+[INFO   ] GL: NPOT texture support is available
+[INFO   ] Base: Leaving application in progress...
+[CRITICAL] App: Aaaargh I'm dying!

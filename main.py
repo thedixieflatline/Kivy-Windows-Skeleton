@@ -10,27 +10,18 @@ import os
 print('SET KIVY HOME')
 os.environ['KIVY_HOME'] = 'Games\Default\\'
 print(os.environ['KIVY_HOME'])
-# SET KIVY CONFIG OPTIONS
+
+# SET KIVY CONFIG OPTIONS Kivy App options set automatically to Config
 from kivy.config import Config
 from kivy.config import ConfigParser
-
-# Create the Sim project file configuration location
-SimConfig = ConfigParser(name='slotsim')
-SimConfig.read(os.environ['KIVY_HOME'] + 'Default-Game.ini')
-
-SimConfig2 = ConfigParser(name='slotsim2')
-SimConfig2.read(os.environ['KIVY_HOME'] + 'Default-Game2.ini')
-
-
-# set the Kivy congig path and file
-Config.read(os.environ['KIVY_HOME'] + 'Kivy-Config.ini')
 
 # window_state: string , one of ‘visible’, ‘’, ‘maximized’
 Config.set('graphics', 'window_state', 'visible')
 # TURN ON OR OFF WRITING KIVY LOG FILES AND TUNE VERBOCITY
 # log_enable = 1
 Config.set('kivy', 'log_enable', 0)
-# Differents logging levels are available : trace, debug, info, warning, error and critical.
+
+# Different logging levels are available : trace, debug, info, warning, error and critical.
 Config.set('kivy', 'log_level', 'info')
 # set screen size
 Config.set('graphics', 'width', '960')
@@ -38,13 +29,20 @@ Config.set('graphics', 'height', '540')
 # write the config options
 Config.write()
 
+# Create the Sim project objects and file configuration locations
+SymbolsConfig = ConfigParser(name='Symbols')
+SymbolsConfig.read(os.environ['KIVY_HOME'] + 'Default-Symbols.ini')
+
+ReelsConfig = ConfigParser(name='Reels')
+ReelsConfig.read(os.environ['KIVY_HOME'] + 'Default-Reels.ini')
+
 # SET GAME CONFIG OPTIONS
 import json
 print(json.dumps({'GameName': 'Slot Sim', 'Version': "0.1"}, sort_keys=True, indent=4))
 
 # import the external python file settingsjson.py
-from gamejson import game_json
-from gamejson2 import game_json2
+from symbolsjson import symbols_json
+from reelsjson import reels_json
 # Library Import
 
 # PYTHON
@@ -92,15 +90,9 @@ ScreenSystem = ScreenManager()
 ScreenSystem.add_widget(GameScreen(name='GameScreen'))
 ScreenSystem.add_widget(SettingsScreen(name='SettingsScreen'))
 ScreenSystem.add_widget(SimulatorScreen(name='SimulatorScreen'))
-# for child in ScreenSystem.children:
-#     print(child)
-
-#parser = ConfigParser()
-# parser.read('simple.ini')
 
 
 # Application loop @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 
 class SlotsimApp(App):
 
@@ -117,18 +109,14 @@ class SlotsimApp(App):
     def on_stop(self):
         Logger.critical('App: Aaaargh I\'m dying!')
 
-    # settings = ConfigParser()
-    # settings.read('mnt/sdcard/.myapp.ini')
-
-
     def build_config(self, config):
-        SimConfig.setdefaults('screen', {
+        SymbolsConfig.setdefaults('screen', {
             'boolexample': True,
             'numericexample': 10,
             'optionsexample': 'option1',
             'stringexample': 'some_string',
             'pathexample': '/some/path'})
-        SimConfig2.setdefaults('screen', {
+        ReelsConfig.setdefaults('screen', {
             'boolexample': True,
             'numericexample': 10,
             'optionsexample': 'option1',
@@ -137,16 +125,12 @@ class SlotsimApp(App):
 
     def build_settings(self, settings):
         # import the external python file settingsjson.py
-        # add_json_panel(title, config, filename=None, data=None)
-        settings.add_json_panel('Settings', SimConfig, data=game_json)
-        settings.add_json_panel('Settings2', SimConfig2, data=game_json2)
-    def on_config_change(self, config, section, key, value):
-        print(SimConfig, section, key, value)
+        settings.add_json_panel('Symbols', SymbolsConfig, data=symbols_json)
+        settings.add_json_panel('Reels', ReelsConfig, data=reels_json)
 
-    # def get_application_config(self):
-    #     return super(SlotsimApp, self).get_application_config(
-    #         '~/.%(appname)s.ini')
-# Application run
+    def on_config_change(self, config, section, key, value):
+        print(ReelsConfig, section, key, value)
+        print(SymbolsConfig, section, key, value)
 
 if __name__ == '__main__':
     SlotsimApp().run()

@@ -1,6 +1,6 @@
 import json
 
-game_json2 = json.dumps([
+reels_json = json.dumps([
     {'type': 'title',
      'title': 'GameScreen2222222222'},
     {'type': 'bool',
