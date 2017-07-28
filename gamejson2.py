@@ -1,10 +1,10 @@
 import json
 
-settings_json = json.dumps([
+game_json2 = json.dumps([
     {'type': 'title',
-     'title': 'Screen'},
+     'title': 'GameScreen2222222222'},
     {'type': 'bool',
-     'title': 'Fullscreen',
+     'title': 'FullscreenBIG',
      'desc': 'Turn on or off to enter fullscreen',
      'section': 'screen',
      'key': 'boolexample'},
@@ -28,4 +28,10 @@ settings_json = json.dumps([
      'title': 'A path setting',
      'desc': 'Path description text',
      'section': 'screen',
-     'key': 'pathexample'}])
+     'key': 'pathexample'},
+    {'type': 'options',
+     "options": ["value1", "value2", "another value"],
+     'desc': 'Options description text',
+     'section': 'screen',
+     'key': 'optionsexample'}
+])
