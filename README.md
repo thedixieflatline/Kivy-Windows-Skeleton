@@ -1,6 +1,6 @@
-# slotsim
+# Kivy Windows Skeleton
 
-A Slot Simulator written in Python using the Kivy framework.
+A Kivy Windows Skeleton written in Python using the Kivy framework.
 
 Windows development environment
 
